@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>The Fremont Frontier</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Kenneth Vernon, Jerry Spangler, Weston McCool,Yaworsky, Brian Codding" />
+    <meta name="date" content="2022-03-18" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/fabric/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="custom_style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# The Fremont Frontier
+## Defining an Ecological Envelope for Maize Farming
+### Kenneth Vernon, Jerry Spangler, Weston McCool,Yaworsky, Brian
+Codding
+### 2022-03-18
+
+---
+
+
+&lt;!-- 
+Images are generated elsewhere and simply loaded here.
+--&gt;
+
+
+
+Goal: define an ecological envelope for maize farming
+
+???
+
+The current drought in the West, which started roughly twenty years ago, looks like it's only going to get worse. The Fremont can help us understand the ecological envelope within which traditional maize farming is a viable strategy.
+
+---
+name: north_america
+class: full-slide-fig animated fadeIn
+
+&lt;img src="libs/images/north_america.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+--
+
+&lt;img src="libs/images/north_america-maize.svg" width="100%" style = "position: absolute;  top: 0;  left: 0;  z-index: 2;" style="display: block; margin: auto;" /&gt;
+
+--
+
+&lt;img src="libs/images/north_america-southwest.svg" width="100%" style = "position: absolute;  top: 0;  left: 0;  z-index: 3;" style="display: block; margin: auto;" /&gt;
+
+--
+
+&lt;img src="libs/images/north_america-fremont.svg" width="100%" style = "position: absolute;  top: 0;  left: 0;  z-index: 4;" style="display: block; margin: auto;" /&gt;
+
+???
+
+The focus here is on the Western Fremont, so the frontier of the frontier.
+
+---
+background-image: url("libs/images/fremont-provinces.png")
+background-size: contain
+class: animated fadeIn
+
+---
+background-image: url("libs/images/fremont-west.png"),url("libs/images/satellite_imagery.webp")
+background-size: contain
+class: animated fadeIn
+name: total-area
+
+.pull-right-39.fremont-area.f3.mt6.mb1[
+
+__Total Area:__ 26.5 million acres
+
+]
+
+--
+
+.pull-right-39.fremont-area.f4[
+- 28 Rhode Islands,
+]
+
+--
+
+.pull-right-39.fremont-area.f4[
+- 2 Denmarks,
+]
+
+--
+
+.pull-right-39.fremont-area.f4[
+- 2.05 x 10&lt;sup&gt;9&lt;/sup&gt; Blake's apartments
+]
+
+???
+
+- Very large area with very few sites.
+- Important caveat! There's a north-south gradient of intensification: Fremont to the south are almost exclusively farmers, Fremont to the north almost exclusively foragers. 
+- For this sort of coarse-grained analysis, this gradient of intensification may not be that important. The West Desert of Utah is extremely marginal and unforgiving. The mountain ranges act like islands in a sea of nothingness. That means everyone, no matter what they’re doing, is hanging out around these rare oases. If we were modeling the whole state, meaning the Colorado Plateau, this would probably be more of an issue. 
+
+---
+background-image: url("libs/images/fremont-site_counts.png"),url("libs/images/satellite_imagery.webp")
+background-size: contain
+
+.pull-right-39.fremont-area.f4.mt6.mb1[
+
+__Unit of analysis:__ HUC10 (N = 183)
+
+__Total Site Count:__ 2,447  
+.gray.f5[\* _weighted by the number of features_]  
+
+__Range:__ 0, 117 (min, max)  
+
+]
+
+???
+
+- These are HUC10 watersheds as defined by the USGS Watershed Boundary Dataset.
+- Total site count is actually a count of the total number of _residential_ features at each site. 
+- Sites without residential features count as one.
+- This weighting is to address the intuitive idea that a really complex site with lots of residential architecture represents more people than an isolated pot-drop.
+
+---
+class: middle center
+
+&lt;img src="libs/images/covariates.png" width="3200" style="display: block; margin: auto;" /&gt;
+
+.right.gray.f5[\* _Median value for each watershed over the Fremont sequence (from 400 to 1400 CE)_]
+
+???
+
+Estimates generated using Bocinsky's paleocar package in R.
+
+---
+class: middle center
+
+&lt;img src="libs/images/model-response_plots.svg" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle center
+
+&lt;img src="libs/images/model-map.png" width="3200" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle center
+
+&lt;img src="libs/images/2d-response.svg" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Where do we go from here?
+
+---
+
+## Acknowledgments
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "magula",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

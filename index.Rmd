@@ -1,0 +1,199 @@
+---
+title: "The Fremont Frontier"
+subtitle: "Defining an Ecological Envelope for Maize Farming"  
+author: Kenneth Vernon, Jerry Spangler, Weston McCool,\nPeter Yaworsky, Brian Codding
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [xaringan-themer.css, custom_style.css]
+    nature:
+      highlightStyle: magula
+      highlightLines: TRUE
+      countIncrementalSlides: FALSE
+      ratio: '16:9'
+---
+
+<!-- 
+Images are generated elsewhere and simply loaded here.
+-->
+
+```{r, include = FALSE, code=xfun::read_utf8("before_chunk.R")}
+```
+
+Goal: define an ecological envelope for maize farming
+
+???
+
+The current drought in the West, which started roughly twenty years ago, looks like it's only going to get worse. The Fremont can help us understand the ecological envelope within which traditional maize farming is a viable strategy.
+
+---
+name: north_america
+class: full-slide-fig animated fadeIn
+
+```{r}
+#| fig.asp = 9/16,
+#| out.width = "100%"
+
+figure("north_america.png")
+
+```
+
+--
+
+```{r}
+#| fig.asp = 9/16,
+#| out.width = "100%",
+#| out.extra = 'style = "position: absolute;
+#|   top: 0; 
+#|   left: 0;
+#|   z-index: 2;"'
+
+figure("north_america-maize.svg")
+
+```
+
+--
+
+```{r}
+#| fig.asp = 9/16,
+#| out.width = "100%",
+#| out.extra = 'style = "position: absolute;
+#|   top: 0; 
+#|   left: 0;
+#|   z-index: 3;"'
+
+figure("north_america-southwest.svg")
+
+```
+
+--
+
+```{r}
+#| fig.asp = 9/16,
+#| out.width = "100%",
+#| out.extra = 'style = "position: absolute;
+#|   top: 0; 
+#|   left: 0;
+#|   z-index: 4;"'
+
+figure("north_america-fremont.svg")
+
+```
+
+???
+
+The focus here is on the Western Fremont, so the frontier of the frontier.
+
+---
+background-image: url("libs/images/fremont-provinces.png")
+background-size: contain
+class: animated fadeIn
+
+---
+background-image: url("libs/images/fremont-west.png"),url("libs/images/satellite_imagery.webp")
+background-size: contain
+class: animated fadeIn
+name: total-area
+
+.pull-right-39.fremont-area.f3.mt6.mb1[
+
+__Total Area:__ 26.5 million acres
+
+]
+
+--
+
+.pull-right-39.fremont-area.f4[
+- 28 Rhode Islands,
+]
+
+--
+
+.pull-right-39.fremont-area.f4[
+- 2 Denmarks,
+]
+
+--
+
+.pull-right-39.fremont-area.f4[
+- 2.05 x 10<sup>9</sup> Blake's apartments
+]
+
+???
+
+- Very large area with very few sites.
+- Important caveat! There's a north-south gradient of intensification: Fremont to the south are almost exclusively farmers, Fremont to the north almost exclusively foragers. 
+- For this sort of coarse-grained analysis, this gradient of intensification may not be that important. The West Desert of Utah is extremely marginal and unforgiving. The mountain ranges act like islands in a sea of nothingness. That means everyone, no matter what they’re doing, is hanging out around these rare oases. If we were modeling the whole state, meaning the Colorado Plateau, this would probably be more of an issue. 
+
+---
+background-image: url("libs/images/fremont-site_counts.png"),url("libs/images/satellite_imagery.webp")
+background-size: contain
+
+.pull-right-39.fremont-area.f4.mt6.mb1[
+
+__Unit of analysis:__ HUC10 (N = 183)
+
+__Total Site Count:__ 2,447  
+.gray.f5[\* _weighted by the number of features_]  
+
+__Range:__ 0, 117 (min, max)  
+
+]
+
+???
+
+- These are HUC10 watersheds as defined by the USGS Watershed Boundary Dataset.
+- Total site count is actually a count of the total number of _residential_ features at each site. 
+- Sites without residential features count as one.
+- This weighting is to address the intuitive idea that a really complex site with lots of residential architecture represents more people than an isolated pot-drop.
+
+---
+class: middle center
+
+```{r}
+
+figure("covariates.png")
+
+```
+
+.right.gray.f5[\* _Median value for each watershed over the Fremont sequence (from 400 to 1400 CE)_]
+
+???
+
+Estimates generated using Bocinsky's paleocar package in R.
+
+---
+class: middle center
+
+```{r}
+
+figure("model-response_plots.svg")
+
+```
+
+---
+class: middle center
+
+```{r}
+
+figure("model-map.png")
+
+```
+
+---
+class: middle center
+
+```{r}
+
+figure("2d-response.svg")
+
+```
+
+---
+
+## Where do we go from here?
+
+---
+
+## Acknowledgments
