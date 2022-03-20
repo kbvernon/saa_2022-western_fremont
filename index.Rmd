@@ -14,6 +14,8 @@ output:
       ratio: '16:9'
 ---
 
+class: middle center
+
 <!-- 
 Images are generated elsewhere and simply loaded here.
 -->
@@ -21,11 +23,20 @@ Images are generated elsewhere and simply loaded here.
 ```{r, include = FALSE, code=xfun::read_utf8("before_chunk.R")}
 ```
 
-Goal: define an ecological envelope for maize farming
+```{r}
+#| out.width = "65%"
+
+figure("maize.png")
+
+```
 
 ???
 
-The current drought in the West, which started roughly twenty years ago, looks like it's only going to get worse. The Fremont can help us understand the ecological envelope within which traditional maize farming is a viable strategy.
+QUESTION: Where do maize farmers live in an arid environment? And what can this tell us about their adaptations to climate-induced drought? 
+
+The Fremont can help us answer this question. 
+
+This is an important topic today for the American West and especially Utah as the state's [Department of Natural Resources](https://water.utah.gov/water-data/drought/) currently classifies 33% of its area as being in extreme drought.
 
 ---
 name: north_america
@@ -90,6 +101,10 @@ background-image: url("libs/images/fremont-provinces.png")
 background-size: contain
 class: animated fadeIn
 
+???
+
+Fremont area straddles the dividing line between the Great Basin to the west and the Colorado Plateau to the east. The former consists of dry desert basins and grassland bisected by north-south mountain ranges. This is the area I am focusing on here.
+
 ---
 background-image: url("libs/images/fremont-west.png"),url("libs/images/satellite_imagery.webp")
 background-size: contain
@@ -106,17 +121,7 @@ __Total Area:__ 26.5 million acres
 
 .pull-right-39.fremont-area.f4[
 - 28 Rhode Islands,
-]
-
---
-
-.pull-right-39.fremont-area.f4[
 - 2 Denmarks,
-]
-
---
-
-.pull-right-39.fremont-area.f4[
 - 2.05 x 10<sup>9</sup> Blake's apartments
 ]
 
@@ -168,6 +173,16 @@ class: middle center
 
 ```{r}
 
+figure("elevation-profile.svg")
+
+```
+
+
+---
+class: middle center
+
+```{r}
+
 figure("model-response_plots.svg")
 
 ```
@@ -186,13 +201,9 @@ class: middle center
 
 ```{r}
 
-figure("2d-response.svg")
+figure("2d-response.gif")
 
 ```
-
----
-
-## Where do we go from here?
 
 ---
 

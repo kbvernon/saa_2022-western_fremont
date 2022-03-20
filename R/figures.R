@@ -13,16 +13,28 @@
 # 08) Fremont zoom
 # 09) Basemap
 # 10) Western Fremont map
+# 11) Site counts map
+# 12) Covariates map
+# 13) Response plots
+# 14) Model map
+# 15) Elevation profile
+# 16) Rain
+# 17) 2d response
+# 18) 2d response gif
 ####################.
 
 # R Preamble --------------------------------------------------------------
 
+library(FedData)
+library(gganimate)
 library(ggfx)
 library(gratia)
 library(here)
 library(mgcv)
 library(patchwork)
 library(sf)
+library(slider)
+library(terra)
 library(tidyverse)
 library(viridis)
 library(webp)
@@ -69,6 +81,18 @@ southwest <- southwest %>%
   filter(st_area(.) == max(st_area(.)))
 
 settlement_model <- here("data", "western_fremont_model.Rds") %>% read_rds()
+
+gdd <- here("data", "gdd.prediction.Rds") %>% 
+  read_rds() %>% 
+  rename_with(tolower) %>% 
+  rename("gdd" = "prediction (scaled)") %>% 
+  select(cell, year, gdd) 
+
+ppt <- here("data", "ppt.prediction.Rds") %>% 
+  read_rds() %>% 
+  rename_with(tolower) %>% 
+  rename("precipitation" = "prediction (scaled)") %>% 
+  select(cell, year, precipitation)
 
 # Map Defaults ------------------------------------------------------------
 
@@ -690,37 +714,190 @@ ggsave(
 
 remove(background, obs, est, res)
 
+# Elevation profile -------------------------------------------------------
+
+bb8 <- tibble(
+  x = c(216765, 495057),
+  y = c(4402719, 4503168)
+) %>% 
+  st_as_sf(
+    coords = c("x", "y"),
+    crs = 26912
+  ) %>% 
+  st_bbox() %>% 
+  st_as_sfc() %>% 
+  st_as_sf()
+
+dem <- get_ned(bb8, label = "temp")
+
+dem <- dem %>% 
+  rast() %>% # convert to a spatRaster
+  crop(st_transform(bb8, crs = 4326)) %>% 
+  project("epsg:26912")
+
+dem <- 
+  dem %>% 
+  resample(
+    rast(
+      extent = ext(dem), 
+      resolution = c(500,500),
+      crs = crs(dem)
+    )
+  ) %>% 
+  mask(vect(bb8))
+
+profile <- tibble(
+  x = xFromCol(dem, 1:ncol(dem)),
+  y = dem %>% as.matrix(wide = TRUE) %>% colMeans(na.rm = TRUE)  
+) %>% 
+  filter(!is.na(y))
+
+remove(bb8, dem)
+
+ggplot(profile, aes(x, ymin = 1000, ymax = y)) +
+  geom_ribbon(
+    fill = alpha("gray35", 0.5)
+  ) +
+  labs(
+    x = "Easting (m)",
+    y = NULL,
+    title = "Elevation Profile of Western Utah",
+    subtitle = "Average in meters for 440km to 450km North"
+  ) +
+  theme_bw(16) +
+  coord_cartesian(expand = FALSE) +
+  theme(
+    axis.ticks = element_line(color = "gray85"),
+    panel.border = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(color = "gray85")
+  ) +
+  scale_x_continuous(
+    breaks = seq(225000, 475000, by = 50000),
+    labels = scales::comma
+  ) +
+  annotate(
+    "text",
+    x = 300000,
+    y = 2450,
+    label = "West Desert",
+    vjust = 1,
+    family = "Rock Salt",
+    color = "#B86A06",
+    size = 6
+  ) +
+  annotate(
+    "text",
+    x = 420000,
+    y = 2450,
+    label = "Salt Lake\nValley",
+    vjust = 1,
+    family = "Rock Salt",
+    color = "#A20000",
+    size = 6
+  )
+
+ggsave(
+  here("libs", "images", "elevation-profile.svg"),
+  width = 12,
+  height = 5
+)
+
+
+
+# Rain --------------------------------------------------------------------
+
+watershed_years <- watersheds %>% 
+  st_drop_geometry() %>% 
+  mutate(cell = 1:n()) %>% 
+  select(cell, id, elevation) %>% 
+  left_join(ppt, by = c("cell")) %>% 
+  filter(year > 849, year < 1375) %>% 
+  mutate(
+    elevation = cut(elevation, breaks = 3, labels = c("low", "medium", "high"))
+  ) %>% 
+  group_by(cell) %>% 
+  arrange(year) %>% 
+  mutate(
+    precipitation = slide_vec(precipitation, mean, .before = 25, .after = 25)
+  ) %>% 
+  ungroup()
+
+ggplot(watershed_years, aes(year, precipitation)) +
+  geom_line(
+    aes(group = cell),
+    color = "gray35",
+    alpha = 0.2
+  ) +
+  stat_summary(
+    aes(color = forcats::fct_rev(elevation)),
+    geom = "line",
+    fun = mean,
+    size = 2
+  ) +
+  scale_color_viridis(
+    name = "Elevation",
+    option = "magma",
+    direction = -1,
+    discrete = TRUE
+  ) +
+  coord_cartesian(expand = FALSE) +
+  theme_bw(16) +
+  theme(
+    axis.ticks = element_line(color = "gray85"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(color = "gray85")
+  ) +
+  labs(
+    x = "Year",
+    y = "Precipitation (mm)",
+    title = "Annual Precipitation by Watershed",
+    subtitle = "Fifty year rolling average"
+  )
+
+ggsave(
+  here("libs", "images", "rain.svg"),
+  width = 12,
+  height = 6)
+
 # 2d response -------------------------------------------------------------
 
 watershed_points <- watersheds %>%
   st_drop_geometry() %>%
   mutate(cell = 1:n()) %>% 
-  select(cell, area, protected, streams)
-
-gdd <- here("data", "gdd.prediction.Rds") %>% 
-  read_rds() %>% 
-  rename_with(tolower) %>% 
-  rename("gdd" = "prediction (scaled)") %>% 
-  select(cell, year, gdd) %>% 
-  filter(year > 1274, year < 1325)
-
-ppt <- here("data", "ppt.prediction.Rds") %>% 
-  read_rds() %>% 
-  rename_with(tolower) %>% 
-  rename("precipitation" = "prediction (scaled)") %>% 
-  select(cell, year, precipitation) %>% 
-  filter(year > 1274, year < 1325)
+  select(cell, elevation, area, protected, streams)
 
 watershed_points <- watershed_points %>% 
   left_join(gdd, by = "cell") %>% 
   left_join(ppt, by = c("cell", "year")) %>% 
   mutate(
+    period = case_when(
+      (year > 0899 & year < 0950) ~ "Apogee (900 to 949 CE)",
+      (year > 1274 & year < 1325) ~ "Collapse (1275 to 1324 CE)",
+      TRUE ~ "other"
+    )
+  ) %>% 
+  filter(
+    period != "other"
+  ) %>% 
+  group_by(cell, period) %>%
+  #----- Get the median values over the time period -----#
+  summarize(
+    precipitation = median(precipitation),
+    gdd = median(gdd),
+    protected = unique(protected),
+    area = unique(area),
+    streams = unique(streams)
+  ) %>%
+  ungroup() %>% 
+  #----- Estimate site counts using the medians -----#
+  mutate(
     sites = predict(settlement_model, newdata = ., type = "response"),
     sites = round(sites)
   ) %>% 
   uncount(sites)
-
-remove(gdd, ppt)
 
 ggplot(
   watershed_points, 
@@ -731,29 +908,115 @@ ggplot(
     contour = TRUE,
     contour_var = "ndensity",
     aes(fill = after_stat(level)), 
-    colour = "gray98"
+    colour = "gray98",
+    bins = 7,
+    size = 0.3
   ) +
   scale_fill_viridis(
-    name = "Relative\nOccurrence\nRate",
+    name = NULL,
     option = "magma",
     na.value = "transparent"
   ) +
   labs(
     x = "Precipitation (mm)",
     y = "Maize GDD (°C)",
-    title = "Distribution of Fremont Sites", 
-    subtitle = "For the period 1275 to 1324 CE"
+    title = "Relative Occurrence Rate Estimates for the Fremont"
+  ) +
+  coord_cartesian(xlim = c(0, 800), ylim = c(800, 1600)) +
+  facet_wrap(~period) +
+  theme_bw(16) +
+  theme(
+    aspect.ratio = 1,
+    panel.background = element_rect(fill = "gray95"),
+    panel.grid = element_blank(),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      size = 16, 
+      hjust = 0,
+      margin = margin(l = 0, b = 5)
+    )
+  )
+
+ggsave(
+  here("libs", "images", "2d-response.svg"),
+  width = 10,
+  height = 5.5
+)
+
+remove(watershed_points)
+
+# 2d response gif ---------------------------------------------------------
+
+watershed_points <- watersheds %>%
+  st_drop_geometry() %>%
+  mutate(cell = 1:n()) %>% 
+  select(cell, elevation, area, protected, streams) %>% 
+  left_join(gdd, by = "cell") %>% 
+  left_join(ppt, by = c("cell", "year")) %>% 
+  filter(year %in% 950:1340) %>% 
+  mutate(
+    sites = predict(settlement_model, newdata = ., type = "response"),
+    sites = slide_vec(sites, median, .before = 25, .after = 25),
+    decade = cut(year, breaks = 40, labels = seq(950, 1340, by = 10))
+  ) %>% 
+  group_by(cell, decade) %>% 
+  summarize(
+    gdd = median(gdd),
+    precipitation = median(precipitation),
+    sites = median(sites),
+    sites = round(sites)
+  ) %>% 
+  ungroup() %>% 
+  uncount(sites) %>% 
+  select(decade, cell, precipitation, gdd) %>% 
+  arrange(decade, cell)
+
+response <- ggplot(
+  watershed_points, 
+  aes(precipitation, gdd, group = decade)
+) + 
+  geom_density_2d_filled(
+    aes(color = ..level..),
+    contour_var = "ndensity",
+    bins = 5,
+    size = 0.3
+  ) +
+  scale_color_manual(
+    name = NULL,
+    values = c("transparent", rep("gray95", 4)),
+    labels = c("very low", "low", "medium", "high", "very high")
+  ) +
+  scale_fill_viridis(
+    name = NULL,
+    option = "magma",
+    na.value = "black",
+    labels = c("very low", "low", "medium", "high", "very high"),
+    discrete = TRUE
+  ) +
+  labs(
+    x = "Precipitation (mm)",
+    y = "Maize GDD (°C)",
+    title = "Relative Occurrence Rate",
+    subtitle = "Decade: {closest_state}"
   ) +
   coord_cartesian(xlim = c(0, 800), ylim = c(800, 1600)) +
   theme_bw(16) +
   theme(
     aspect.ratio = 1,
-    panel.background = element_rect(fill = "gray95"),
-    panel.grid = element_blank()
-  )
+    panel.background = element_rect(fill = "black"),
+    panel.grid = element_blank(),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      size = 16, 
+      hjust = 0,
+      margin = margin(l = 0, b = 5)
+    )
+  ) +
+  transition_states(decade, 4, 2) +
+  enter_fade()
 
-ggsave(
-  here("libs", "images", "2d-response.svg"),
-  width = 6.5,
-  height = 6.5
+anim_save(
+  here("libs", "images", "2d-response.gif"),
+  response,
+  nframes = 40 * 6
 )
