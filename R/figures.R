@@ -148,7 +148,7 @@ ggplot() +
   coordinates
   
 ggsave(
-  here("libs", "images", "north_america.png"),
+  here("images", "north_america.png"),
   width = 16,
   height = 9,
   dpi = 600
@@ -191,7 +191,7 @@ ggplot() +
   coordinates
 
 ggsave(
-  here("libs", "images", "north_america-maize.svg"),
+  here("images", "north_america-maize.svg"),
   width = 16,
   height = 9
 )
@@ -233,7 +233,7 @@ ggplot() +
   coordinates
 
 ggsave(
-  here("libs", "images", "north_america-southwest.svg"),
+  here("images", "north_america-southwest.svg"),
   width = 16,
   height = 9
 )
@@ -275,7 +275,7 @@ ggplot() +
   coordinates
 
 ggsave(
-  here("libs", "images", "north_america-fremont.svg"),
+  here("images", "north_america-fremont.svg"),
   width = 16,
   height = 9
 )
@@ -381,7 +381,7 @@ ggplot() +
   coordinates_zoom
 
 ggsave(
-  here("libs", "images", "fremont-provinces.png"),
+  here("images", "fremont-provinces.png"),
   width = 16,
   height = 9,
   dpi = 600
@@ -430,7 +430,7 @@ ggsave(
 
 write_webp(
   jpeg::readJPEG(fn),
-  here("libs", "images", "satellite_imagery.webp")
+  here("images", "satellite_imagery.webp")
 )
 
 remove(fn)
@@ -451,7 +451,7 @@ ggplot() +
   coordinates_zoom
 
 ggsave(
-  here("libs", "images", "fremont-west.png"),
+  here("images", "fremont-west.png"),
   width = 16,
   height = 9,
   dpi = 600
@@ -492,7 +492,7 @@ ggplot() +
   )
 
 ggsave(
-  here("libs", "images", "fremont-site_counts.png"),
+  here("images", "fremont-site_counts.png"),
   width = 16,
   height = 9,
   dpi = 600
@@ -550,7 +550,7 @@ streams <- background +
 gdd + ppt + streams & coord_sf(datum = 26912, crs = 26912)
 
 ggsave(
-  here("libs", "images", "covariates.png"),
+  here("images", "covariates.png"),
   width = 12,
   height = 5,
   dpi = 600
@@ -634,7 +634,7 @@ ggplot(margins, aes(x, y)) +
   )
 
 ggsave(
-  here("libs", "images", "model-response_plots.svg"),
+  here("images", "model-response_plots.svg"),
   width = 8,
   height = 8 * 0.45
 )
@@ -706,7 +706,7 @@ res <- background +
 obs + est + res & coord_sf(datum = 26912, crs = 26912)
 
 ggsave(
-  here("libs", "images", "model-map.png"),
+  here("images", "model-map.png"),
   width = 12,
   height = 5,
   dpi = 600
@@ -799,7 +799,7 @@ ggplot(profile, aes(x, ymin = 1000, ymax = y)) +
   )
 
 ggsave(
-  here("libs", "images", "elevation-profile.svg"),
+  here("images", "elevation-profile.svg"),
   width = 12,
   height = 5
 )
@@ -858,7 +858,7 @@ ggplot(watershed_years, aes(year, precipitation)) +
   )
 
 ggsave(
-  here("libs", "images", "rain.svg"),
+  here("images", "rain.svg"),
   width = 12,
   height = 6)
 
@@ -938,7 +938,7 @@ ggplot(
   )
 
 ggsave(
-  here("libs", "images", "2d-response.svg"),
+  here("images", "2d-response.svg"),
   width = 10,
   height = 5.5
 )
@@ -1016,7 +1016,7 @@ response <- ggplot(
   enter_fade()
 
 anim_save(
-  here("libs", "images", "2d-response.gif"),
+  here("images", "2d-response.gif"),
   response,
   nframes = 40 * 6
 )
