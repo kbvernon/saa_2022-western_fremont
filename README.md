@@ -4,11 +4,15 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-Repository for my presentation at the Society for American Archaeology 87th Annual Meeting in Chicago. Slides made using [xaringan]() in R.
+Repository for my presentation at the Society for American Archaeology 87th Annual Meeting in Chicago. Slides made using [xaringan](https://github.com/yihui/xaringan) in R. 
+
+__Slides:__ <https://kbvernon.github.io/saa_2022-western_fremont>
+
+You can press "P" to enter (or leave) presenter view and see my slide notes. Press "O" (the letter oh) to see a tile view of all the slides for easy navigation.
 
 __Session:__ "Climatic Influences on Diet, Demography, and Conflict"
 
-__Title:__ "Farming on the Frontier: Fremont Responses to Climate-Induced Drought"
+__Title:__ "The Fremont Frontier: Living at the Margins of the Maize Farming Niche"
 
 __Authors:__ Kenneth Vernon, Jerry Spangler, Weston McCool, Peter Yaworsky, Brian Codding
 
