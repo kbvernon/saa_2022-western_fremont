@@ -21,6 +21,7 @@
 # 16) Rain
 # 17) 2d response
 # 18) 2d response gif
+# 19) A few downloads
 ####################.
 
 # R Preamble --------------------------------------------------------------
@@ -1041,4 +1042,20 @@ gganimate::animate(
 
 anim_save(
   here("images", "2d-response.gif")
+)
+
+
+# A few downloads ---------------------------------------------------------
+
+download.file(
+  paste0(
+    "https://historytogo.utah.gov/wp-content/uploads/2016/", 
+    "04/Figure-2-Fremont-Farmstead-1024x434.jpg"
+  ),
+  destfile = here::here("images", "fremont-farmstead.jpg")
+)
+
+download.file(
+  "https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png",
+  destfile = here::here("images", "nsf.png")
 )

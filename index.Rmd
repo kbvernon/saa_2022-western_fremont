@@ -209,7 +209,7 @@ name: total-area
 ]
 
 ---
-background-image: url("https://historytogo.utah.gov/wp-content/uploads/2016/04/Figure-2-Fremont-Farmstead-1024x434.jpg")
+background-image: url("images/fremont-farmstead.jpg")
 class: center
 
 ## Despite these hardships, the Fremont flourished
@@ -410,7 +410,7 @@ figure("logo-gcsc.png")
 ```{r}
 #| out.extra = "class='fl w-30 pl4'"
 
-knitr::include_graphics("https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png")
+figure("nsf.png")
 
 ```
 ]
