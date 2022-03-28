@@ -262,27 +262,6 @@ In the _average_ environment, how much does site count change per unit change in
 ---
 class: middle center
 
-## The Maize Niche in Geographic Space
-
-```{r}
-
-figure("model-map.png")
-
-```
-
-<br>
-
-???
-
-Three interesting take-aways here.
-
-- First, the model suggests that the Fremont would have thrived at high density around the  Oquirrh and Stansbury Mountains to the north (the area just south of the Great Salt Lake).  
-- Second, the watersheds just north of the Parowan Valley are estimated to be of higher quality for the Fremont.  
-- But, third, there is some obvious spatial structure in the residuals, areas where the model is systematically underestimating or overestimating the total number of sites, so this may bias the result.  
-
----
-class: middle center
-
 ## The Maize Niche Through Time
 
 ```{r}
