@@ -1,7 +1,7 @@
 ---
 title: "The Fremont Frontier"
 subtitle: "Living at the Margins of Maize Farming"  
-author: Kenneth Vernon, Jerry Spangler, Weston McCool, Peter Yaworsky, and Brian Codding
+author: Kenneth Blake Vernon, Jerry Spangler, Weston McCool, Peter Yaworsky, Simon Brewer, and Brian Codding
 date: "March 31, 2022"
 output:
   xaringan::moon_reader:
@@ -283,18 +283,58 @@ Obvious result that confirms a popular hypothesis for farming in the southwest. 
 
 
 ---
+layout: true
 class: center middle short-headers
 
 ## The Mega-Drought of 1276
 ### Decoupled Maize GDD and Precipitation (PPT) Optima (*)
 
+---
+
 ```{r}
 
-figure("elevation-profile.svg")
+figure("elevation-profile.png")
 
 ```
 
 ---
+count: false
+
+```{r}
+
+figure("elevation-profile-goldilocks.png")
+
+```
+
+---
+count: false
+
+```{r}
+
+figure("elevation-profile-gdd.png")
+
+```
+
+---
+count: false
+
+```{r}
+
+figure("elevation-profile-ppt.png")
+
+```
+
+---
+count: false
+
+```{r}
+
+figure("elevation-profile-narrow.png")
+
+```
+
+---
+layout: false
 background-image: url("images/desert_parchment.webp")
 background-size: contain
 
