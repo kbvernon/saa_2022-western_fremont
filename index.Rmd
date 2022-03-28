@@ -42,7 +42,8 @@ options(
 
 style_mono_accent(
   base_color = "#7B1F00",
-  background_color = "#FFF"
+  background_color = "#FFF",
+  black_color = "#1E1F1C"
 )
 
 xaringanExtra::use_tachyons()
@@ -188,36 +189,46 @@ background-size: contain
 class: animated fadeIn middle
 name: total-area
 
-.pull-right-39.fremont-area[
+.pull-right-39.fremont-area.f4[
 
-__An area of extremes__ 
+**An area of extremes** 
+.f5[
 - <30 cm of rainfall a year  
 - 1-3,000 meters of elevation  
-- 25&#176;C swing in daily temperature  
+- 25&#176;C swing in daily temperature 
+]
 
-**Elevation** drives _everything_.  
+**Elevation drives everything**  
+.f5[
 - -2.1&#176;C for every 300 m of elevation  
 - 00% of precip is winter snow pack  
+]
 
-**Trade-off** between temperature and precipitation.  
+**Trade-off between temperature and precipitation**  
 
 ]
+
+---
+background-image: url("https://historytogo.utah.gov/wp-content/uploads/2016/04/Figure-2-Fremont-Farmstead-1024x434.jpg")
+class: center
+
+## Despite these hardships, the Fremont flourished
+
+.absolute.bottom-2.right-2.pr4.pb4.mr2.mb2.grey[_artist unknown_]
 
 ---
 background-image: url("images/fremont-site_counts.png"),url("images/satellite_imagery.webp")
 background-size: contain
 class: middle
 
-.pull-right-39.fremont-area[
+.pull-right-39.fremont-area.f4[
 
-Despite these and other challenges, the **Fremont managed to thrive and flourish** for nearly a thousand years.  
+**Unit of analysis: HUC10** (N = 183)
 
-**Unit of analysis:** HUC10 (N = 183)
+**Total Site Count: 2,447**  
+.f5[\* _weighted by the number of features_]  
 
-**Total Site Count:** 2,447  
-.gray[\* _weighted by the number of features_]  
-
-**Range:** 0, 117 (min, max)  
+**Range: 0, 117** (min, max)  
 
 ]
 
@@ -256,12 +267,6 @@ class: middle center
 figure("model-response_plots.svg")
 
 ```
-
-???
-
-- As you can see, site count tends to increase with increasing GDD. Of course, as my friend Pete likes to point out, this result should be taken with a grain of salt, for it could not increase indefinitely in this way. I mean, no one is farming on the sun.  
-- Precipitation has a uni-modal response with an apex at approximately 500 mm of average annual rainfall. The fact that it diminishes at higher levels is probably related to the trade-off with temperature.  
-- Cost-distance to streams has a small but significant effect. In general, sites increase with increasing proximity to streams.   
 
 ---
 class: middle center
