@@ -12,7 +12,7 @@ You can press "P" to enter (or leave) presenter view and see my slide notes. Pre
 
 __Session:__ "Climatic Influences on Diet, Demography, and Conflict"
 
-__Title:__ "The Fremont Frontier: Living at the Margins of the Maize Farming Niche"
+__Title:__ "The Fremont Frontier: Living at the Margins of Maize Farming"
 
 __Authors:__ Kenneth Vernon, Jerry Spangler, Weston McCool, Peter Yaworsky, Brian Codding
 

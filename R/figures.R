@@ -146,7 +146,7 @@ ggplot() +
     size = 0.4
   ) +
   coordinates
-  
+
 ggsave(
   here("images", "north_america.png"),
   width = 16,
@@ -627,6 +627,7 @@ ggplot(margins, aes(x, y)) +
     axis.text = element_text(size = 13),
     axis.title.y = element_text(size = 15),
     legend.position = "none",
+    plot.margin = margin(0.1, 0.66, 0.1, 0.1, "in"),
     panel.grid = element_blank(),
     strip.background = element_blank(),
     strip.placement = "outside",
@@ -635,8 +636,8 @@ ggplot(margins, aes(x, y)) +
 
 ggsave(
   here("images", "model-response_plots.svg"),
-  width = 8,
-  height = 8 * 0.45
+  width = 8.5,
+  height = 8.5 * 0.45
 )
 
 # Model map ---------------------------------------------------------------
@@ -654,7 +655,6 @@ watersheds <- watersheds %>%
     )
   )
 
-
 background <- ggplot() +
   geom_sf(
     data = states %>% filter(name == "Utah"),
@@ -665,7 +665,6 @@ background <- ggplot() +
     legend.justification = c("left", "bottom"),
     legend.position = c(0.65, 0.35)
   )
-
 
 obs <- background +
   geom_sf(
@@ -754,15 +753,48 @@ profile <- tibble(
 
 remove(bb8, dem)
 
-ggplot(profile, aes(x, ymin = 1000, ymax = y)) +
+goldilocks <- c(1400, 1700)
+
+ggplot(profile) +
   geom_ribbon(
-    fill = alpha("gray35", 0.5)
+    aes(x, ymin = 1000, ymax = y),
+    fill = "gray65"
+  ) +
+  with_blur(
+    geom_ribbon(
+      aes(x, ymin = goldilocks[[1]]-60, ymax = goldilocks[[2]]+60),
+      fill = alpha("#5D8EAC", 0.1)
+    ),
+    sigma = 0.8
+  ) +
+  with_blur(
+    geom_ribbon(
+      aes(x, ymin = goldilocks[[1]]-40, ymax = goldilocks[[2]]+40),
+      fill = alpha("#5D8EAC", 0.125)
+    ),
+    sigma = 0.8
+  ) +
+  with_blur(
+    geom_ribbon(
+      aes(x, ymin = goldilocks[[1]]-20, ymax = goldilocks[[2]]+20),
+      fill = alpha("#5D8EAC", 0.175)
+    ),
+    sigma = 0.8
+  ) +
+  geom_ribbon(
+    aes(x, ymin = goldilocks[[1]], ymax = goldilocks[[2]]),
+    fill = alpha("#5D8EAC", 0.4),
+    color = "#5D8EAC",
+    size = 0.4
+  ) +
+  geom_ribbon(
+    aes(x, ymin = 1000, ymax = y),
+    fill = "transparent",
+    color = "gray35"
   ) +
   labs(
     x = "Easting (m)",
-    y = NULL,
-    title = "Elevation Profile of Western Utah",
-    subtitle = "Average in meters for 440km to 450km North"
+    y = "Elevation (m)"
   ) +
   theme_bw(16) +
   coord_cartesian(expand = FALSE) +
@@ -776,26 +808,6 @@ ggplot(profile, aes(x, ymin = 1000, ymax = y)) +
   scale_x_continuous(
     breaks = seq(225000, 475000, by = 50000),
     labels = scales::comma
-  ) +
-  annotate(
-    "text",
-    x = 300000,
-    y = 2450,
-    label = "West Desert",
-    vjust = 1,
-    family = "Rock Salt",
-    color = "#B86A06",
-    size = 6
-  ) +
-  annotate(
-    "text",
-    x = 420000,
-    y = 2450,
-    label = "Salt Lake\nValley",
-    vjust = 1,
-    family = "Rock Salt",
-    color = "#A20000",
-    size = 6
   )
 
 ggsave(
@@ -804,7 +816,7 @@ ggsave(
   height = 5
 )
 
-
+# moving to Illustrator to finish up the labels and arrows
 
 # Rain --------------------------------------------------------------------
 
@@ -982,22 +994,23 @@ response <- ggplot(
     size = 0.3
   ) +
   scale_color_manual(
-    name = NULL,
+    name = "Suitability",
     values = c("transparent", rep("gray95", 4)),
-    labels = c("very low", "low", "medium", "high", "very high")
+    labels = c("very low", "low", "medium", "high", "very high"),
+    guide = guide_legend(reverse = TRUE)
   ) +
   scale_fill_viridis(
-    name = NULL,
+    name = "Suitability",
     option = "magma",
     na.value = "black",
     labels = c("very low", "low", "medium", "high", "very high"),
-    discrete = TRUE
+    discrete = TRUE,
+    guide = guide_legend(reverse = TRUE)
   ) +
   labs(
     x = "Precipitation (mm)",
     y = "Maize GDD (°C)",
-    title = "Relative Occurrence Rate",
-    subtitle = "Decade: {closest_state}"
+    title = "Decade: {closest_state}"
   ) +
   coord_cartesian(xlim = c(0, 800), ylim = c(800, 1600)) +
   theme_bw(16) +
@@ -1005,6 +1018,7 @@ response <- ggplot(
     aspect.ratio = 1,
     panel.background = element_rect(fill = "black"),
     panel.grid = element_blank(),
+    plot.margin = margin(),
     strip.background = element_blank(),
     strip.text = element_text(
       size = 16, 
@@ -1012,11 +1026,19 @@ response <- ggplot(
       margin = margin(l = 0, b = 5)
     )
   ) +
-  transition_states(decade, 4, 2) +
+  transition_states(decade, 4, 3) +
   enter_fade()
 
-anim_save(
-  here("images", "2d-response.gif"),
+gganimate::animate(
   response,
-  nframes = 40 * 6
+  nframe = 40 * 10,
+  fps = 20,
+  width = 6, 
+  height = 4.5,
+  units = "in",
+  res = 320
+)
+
+anim_save(
+  here("images", "2d-response.gif")
 )

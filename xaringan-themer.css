@@ -20,7 +20,7 @@
  * ------------------------------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Cabin:600,600i&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Fira+Mono&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap);
 
 
 :root {
@@ -32,36 +32,34 @@
   --header-font-family: Cabin;
   --header-font-is-google: 1;
   --header-font-family-fallback: Georgia, serif;
-  --code-font-family: 'Fira Mono';
+  --code-font-family: 'Source Code Pro';
   --code-font-is-google: 1;
   --base-font-size: 20px;
   --text-font-size: 1rem;
   --code-font-size: 0.9rem;
   --code-inline-font-size: 1em;
-  --header-h1-font-size: 45px;
-  --header-h2-font-size: 35px;
-  --header-h3-font-size: 20px;
+  --header-h1-font-size: 2.75rem;
+  --header-h2-font-size: 2.25rem;
+  --header-h3-font-size: 1.75rem;
 
   /* Colors */
-  --text-color: #000000;
-  --header-color: #5e5e5e;
-  --background-color: #FFFFFF;
-  --link-color: #CC0000;
-  --text-bold-color: #CC0000;
+  --text-color: #272822;
+  --header-color: #7B1F00;
+  --background-color: #FFF;
+  --link-color: #7B1F00;
+  --text-bold-color: #7B1F00;
   --code-highlight-color: rgba(255,255,0,0.5);
   --inverse-text-color: #FFFFFF;
-  --inverse-background-color: #CC0000;
+  --inverse-background-color: #7B1F00;
   --inverse-header-color: #FFFFFF;
-  --inverse-link-color: #CC0000;
-  --title-slide-background-color: #5e5e5e;
+  --inverse-link-color: #7B1F00;
+  --title-slide-background-color: #7B1F00;
   --title-slide-text-color: #FFFFFF;
-  --header-background-color: #5e5e5e;
-  --header-background-text-color: #FFFFFF;
-  --primary: #5e5e5e;
-  --secondary: #CC0000;
+  --header-background-color: #7B1F00;
+  --header-background-text-color: #FFF;
+  --base: #7B1F00;
   --white: #FFFFFF;
-  --black: #000000;
-  --white: #FFFFFF;
+  --black: #272822;
 }
 
 html {
@@ -102,10 +100,10 @@ h1, h2, h3 {
 }
 .remark-inline-code {
   font-size: var(--code-inline-font-size);
-  color: #CC0000;
+  color: #7B1F00;
 }
 .remark-slide-number {
-  color: #5e5e5e;
+  color: #7B1F00;
   opacity: 1;
   font-size: 0.9rem;
 }
@@ -153,10 +151,10 @@ a, a > code {
   float: left;
 }
 .left-column h2, .left-column h3 {
-  color: #5e5e5e99;
+  color: #7B1F0099;
 }
 .left-column h2:last-of-type, .left-column h3:last-child {
-  color: #5e5e5e;
+  color: #7B1F00;
 }
 .right-column {
   width: 75%;
@@ -178,7 +176,7 @@ img, video, iframe {
   max-width: 100%;
 }
 blockquote {
-  border-left: solid 5px #CC000080;
+  border-left: solid 5px #7B1F0080;
   padding-left: 1em;
 }
 .remark-slide table {
@@ -193,7 +191,7 @@ th, td {
   padding: 5px;
 }
 .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
-  background: #F4CCCC;
+  background: #E4D2CC;
 }
 table.dataTable tbody {
   background-color: var(--background-color);
@@ -203,7 +201,7 @@ table.dataTable.display tbody tr.odd {
   background-color: var(--background-color);
 }
 table.dataTable.display tbody tr.even {
-  background-color: #F4CCCC;
+  background-color: #E4D2CC;
 }
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.5);
@@ -273,17 +271,11 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   }
 }
 
-.primary {
-  color: var(--primary);
+.base {
+  color: var(--base);
 }
-.bg-primary {
-  background-color: var(--primary);
-}
-.secondary {
-  color: var(--secondary);
-}
-.bg-secondary {
-  background-color: var(--secondary);
+.bg-base {
+  background-color: var(--base);
 }
 .white {
   color: var(--white);
@@ -296,11 +288,5 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
 }
 .bg-black {
   background-color: var(--black);
-}
-.white {
-  color: var(--white);
-}
-.bg-white {
-  background-color: var(--white);
 }
 

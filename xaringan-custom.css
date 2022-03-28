@@ -1,0 +1,131 @@
+
+:root {
+  --darkblue: #001B4D;
+  --darkgrey: #2E3438;
+  --midgrey: #768692;
+  --palegrey: #E8EDEE;
+}
+
+h2 {
+  margin-block-end: 0.4em;
+}
+
+h3 {
+  margin-block-start: 0.1em;
+  margin-block-end: 0.2em;
+}
+
+/*-- Custom class for the title slide --*/
+
+.title-slide {
+  font-size: 1.3em;
+  font-weight: 400;
+  background-color: var(--white);
+  color: var(--palegrey);
+}
+
+/*-- Headings --*/
+.title-slide h1 {
+  font-size: 2.9em;
+  font-weight: 700;
+  color: var(--black);
+  text-shadow: -1px  1px 0 var(--midgrey),
+				        1px  1px 0 var(--midgrey),
+				        2px -1px 0 var(--palegrey);
+				       -1px -2px 0 var(--palegrey);
+	margin-bottom: 0.33em;
+  
+}
+.title-slide h3 {
+  color: var(--base);
+  font-size: 1.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: -1px  1px 0 var(--midgrey),
+				        1px  1px 0 var(--midgrey),
+				        2px -1px 0 var(--palegrey);
+				       -1px -2px 0 var(--palegrey);
+	margin-top: 0.33em;
+}
+
+.author-date {
+  position: relative;
+  min-height: 4in;
+  max-width: 6.5in;
+  margin-left: auto;
+  margin-right: 0 !important;
+}
+
+.author-date p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.pull-left-60 {
+  float: left;
+  width: 60%;
+}
+
+.pull-right-39 {
+  float: right;
+  width: 39%;
+}
+
+.pull-right-39 ~ * {
+  clear: both;
+}
+
+.remark-slide-content.full-slide-fig {
+  padding: 0px 0px 0px 0px;
+  width: 100%;
+}
+
+.remark-slide-content.full-slide-fig p {
+  margin: 0;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+.fremont-area ul {
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+}
+
+.acknowledgment {
+  position: absolute;
+  top: 5%;
+  left:5%;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 35px !important;
+  max-width: 42%;
+}
+
+.acknowledgment h2 {
+  margin-top: 0.23em;
+}
+
+.acknowledgment h4 {
+  color: var(--base);
+}
+
+.acknowledgment ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logos {
+  position: absolute;
+  top: 5%;
+  right:5%;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 35px !important;
+  max-width: 46%;
+  align-content: right;
+}

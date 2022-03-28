@@ -4,7 +4,7 @@
     <title>The Fremont Frontier</title>
     <meta charset="utf-8" />
     <meta name="author" content="Kenneth Vernon, Jerry Spangler, Weston McCool, Peter Yaworsky, and Brian Codding" />
-    <meta name="date" content="2022-03-24" />
+    <meta name="date" content="2022-03-31" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
@@ -30,7 +30,7 @@
     <meta property="og:locale" content="en_US"/>
     <meta property="article:author" content="Kenneth B Vernon"/>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
-    <link rel="stylesheet" href="custom_style.css" type="text/css" />
+    <link rel="stylesheet" href="xaringan-custom.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -44,7 +44,13 @@ class: title-slide, right, top
 background-image: url(images/title-western_utah.webp)
 background-size: contain
 
+# The Fremont Frontier  
+### Living at the Margins of Maize Farming  
 
+.author-date[
+Kenneth Vernon, Jerry Spangler, Weston McCool, Peter Yaworsky, and Brian Codding  
+March 31, 2022
+]
 
 ---
 class: middle center
@@ -53,11 +59,9 @@ class: middle center
 
 ???
 
-QUESTION: Where do maize farmers live in an arid environment? And what can this tell us about their adaptations to climate-induced drought? 
+In trying to understand the maize farming niche, people tend to focus on the places where it farming is most productive. This is important, but it doesn't give us the whole picture. We also need to understand how maize farmers adapted at the margins. The Fremont can help us answer this question. 
 
-The Fremont can help us answer this question. 
 
-This is an important topic today for the American West and especially Utah as the state's [Department of Natural Resources](https://water.utah.gov/water-data/drought/) currently classifies 33% of its area as being in extreme drought.
 
 ---
 name: north_america
@@ -79,7 +83,7 @@ class: full-slide-fig animated fadeIn
 
 ???
 
-The focus here is on the Western Fremont, so the frontier of the frontier.
+Current research suggests that maize evolved on the southwest coast of Mexico. It then expanded northward through settlement, trade, and adaptation. At around 500 CE, maize reached what would become its northern frontier in present day Utah, introduced to the region by a loose network of people collectively referred to as the Fremont.
 
 ---
 background-image: url("images/fremont-provinces.png")
@@ -88,61 +92,59 @@ class: animated fadeIn
 
 ???
 
-Fremont area straddles the dividing line between the Great Basin to the west and the Colorado Plateau to the east. The former consists of dry desert basins and grassland bisected by north-south mountain ranges. This is the area I am focusing on here. If we can make sense of the Fremont who made a go of farming there, maybe they can tell us something about the viability of traditional farming in arid environments today.
+At its greatest extent, the Fremont complex encompassed two major physiographic regions: the Great Basin to the west and the Colorado Plateau to the east. The former consists of dry desert and grassland basins bisected by north-south running mountain ranges. This is the area I am focusing on with this project.
 
 ---
 background-image: url("images/fremont-west.png"),url("images/satellite_imagery.webp")
 background-size: contain
-class: animated fadeIn
+class: animated fadeIn middle
 name: total-area
 
-.pull-right-39.fremont-area.f3.mt6.mb1[
+.pull-right-39.fremont-area[
 
-__Total Area:__ 26.5 million acres
+__An area of extremes__ 
+- &lt;30 cm of rainfall a year  
+- 1-3,000 meters of elevation  
+- 25&amp;#176;C swing in daily temperature  
+
+**Orography** drives _everything_.  
+- -2.1&amp;#176;C for every 300 m of elevation  
+- 00% of precip is winter snow pack  
+
+**Trade-off** between temperature and precipitation.  
 
 ]
-
-.pull-right-39.fremont-area.f4[
-- 28 Rhode Islands,
-- 2 Denmarks,
-- 2.05 x 10&lt;sup&gt;9&lt;/sup&gt; Blake's apartments
-]
-
-???
-
-- Very large area with very few sites.
-- Important caveat! There's a north-south gradient of intensification: Fremont to the south are almost exclusively farmers, Fremont to the north almost exclusively foragers. 
-- Fortunately, for this sort of coarse-grained analysis, this gradient of intensification may not be that important. That's because western Utah is extremely marginal and unforgiving. The mountains crop up out of the desert like islands out of the sea. That means everyone, regardless of their subsistence base, is hanging out around these highly circumscribed oases. 
 
 ---
 background-image: url("images/fremont-site_counts.png"),url("images/satellite_imagery.webp")
 background-size: contain
+class: middle
 
-.pull-right-39.fremont-area.f4.mt6.mb1[
+.pull-right-39.fremont-area[
 
-__Unit of analysis:__ HUC10 (N = 183)
+Despite these and other challenges, the **Fremont managed to thrive and flourish** for nearly a thousand years.  
 
-__Total Site Count:__ 2,447  
-.gray.f5[\* _weighted by the number of features_]  
+**Unit of analysis:** HUC10 (N = 183)
 
-__Range:__ 0, 117 (min, max)  
+**Total Site Count:** 2,447  
+.gray[\* _weighted by the number of features_]  
+
+**Range:** 0, 117 (min, max)  
 
 ]
 
 ???
 
-- The unit of analysis is the HUC10 watershed as defined by the USGS Watershed Boundary Dataset.
-- Total site count is actually a count of the total number of _residential_ features at each site. 
-    - Sites without residential features count as one.
-    - This weighting is to address the intuitive idea that a really complex site with lots of residential architecture represents more people than an isolated pot-drop.
-- The bright areas to the southeast represent the Parowan Valley, where famous Fremont sites like Evans Mound are located. The area just east of the Great Salt Lake is the Willard Wetlands, where dozens of human remains were excavated in the early nineties by Steve Simms and others.
+The bright areas to the southeast represent the Parowan Valley, where famous Fremont sites like Evans Mound are located. The area just east of the Great Salt Lake is the Willard Wetlands, where dozens of human remains were excavated in the early nineties by Steve Simms and others.
 
 ---
 class: middle center
 
+## Environmental Covariates
+
 &lt;img src="images/covariates.png" width="3200" style="display: block; margin: auto;" /&gt;
 
-.right.gray.f5[\* _Median value for each watershed over the Fremont sequence (from 400 to 1400 CE)_]
+Median value for each watershed over the Fremont sequence (from 400 to 1400 CE)
 
 ???
 
@@ -155,46 +157,41 @@ Two things to note here:
 ---
 class: middle center
 
-&lt;img src="images/elevation-profile.svg" style="display: block; margin: auto;" /&gt;
-
-???
-
-It's important to note that the climate variables, temperature and precipitation, and even the topographic variable, cost-distance to streams, are largely driven by elevation in Utah. That's why you get these lush, green mountains rising up out of the desert. But it's also why, if you want to make a go of farming at high elevations, you have to worry about frost. So, there's a trade-off here that suggests a Goldilocks zone along the base of these ranges.
-
-That these variables are all driven by elevation means, of course, that they are all correlated with each other. This is a thorny issue that requires careful consideration. Rather than tackle that problem here, though, let me just make two brief comments about it. 
-- First, the obvious way to avoid co-linearity here is to simply regress site counts against elevation. This is unsatisfactory, however, as elevation is not explanatory. A farmer doesn't choose to live at, say, 1300 meters of elevation _because_ it's 1300 meters. Rather, they want to live at that elevation _because_ the climate is right for farming! 
-- Second, we are using a generalized additive model here, so the covariates are only linearly connected through their smooth functions. That means their correlation is only problematic insofar as their smooth functions are correlated. Our analysis suggests that this is not the case, at least not to a degree that would significantly bias the model.
-
----
-class: middle center
+## The Maize Niche in Ecological Space
 
 &lt;img src="images/model-response_plots.svg" style="display: block; margin: auto;" /&gt;
 
+In the _average_ environment, how much does site count change per unit change in X?
+
 ???
 
-After fitting the model, we can define these marginal responses. You can interpret these figures as a graphical answer to the question, "In the _average_ environment, how much would site count increase or decrease with a unit change in X?"  
-
 - As you can see, site count tends to increase with increasing GDD. Of course, as my friend Pete likes to point out, this result should be taken with a grain of salt, for it could not increase indefinitely in this way. I mean, no one is farming on the sun.  
-- Precipitation has a unimodal response with an apex at approximately 500 mm of average annual rainfall. The fact that it diminishes at higher levels is probably related to the trade-off with temperature.  
+- Precipitation has a uni-modal response with an apex at approximately 500 mm of average annual rainfall. The fact that it diminishes at higher levels is probably related to the trade-off with temperature.  
 - Cost-distance to streams has a small but significant effect. In general, sites increase with increasing proximity to streams.   
 
 ---
 class: middle center
 
+## The Maize Niche in Geographic Space
+
 &lt;img src="images/model-map.png" width="3200" style="display: block; margin: auto;" /&gt;
+
+&lt;br&gt;
 
 ???
 
-Here's our reconstruction of the farming envelope in geographic space. There are three interesting take-aways here.
+Three interesting take-aways here.
 
-- First, the model suggests that the Fremont would have thrived at high density around the  Oquirrh and Stansbury Mountains to the north (the area just south of the Great Salt Lake).
-- Second, the watersheds just north of the Parowan Valley are estimated to be of higher quality for the Fremont.
+- First, the model suggests that the Fremont would have thrived at high density around the  Oquirrh and Stansbury Mountains to the north (the area just south of the Great Salt Lake).  
+- Second, the watersheds just north of the Parowan Valley are estimated to be of higher quality for the Fremont.  
 - But, third, there is some obvious spatial structure in the residuals, areas where the model is systematically underestimating or overestimating the total number of sites, so this may bias the result.  
 
 ---
 class: middle center
 
-&lt;img src="images/2d-response.gif" style="display: block; margin: auto;" /&gt;
+## The Maize Niche Through Time
+
+&lt;img src="images/2d-response.gif" width="50%" style="display: block; margin: auto;" /&gt;
 
 ???
 
@@ -208,28 +205,29 @@ Obvious result that confirms a popular hypothesis for farming in the southwest. 
 
 
 ---
+class: center middle short-headers
 
-## Acknowledgments
+## The Mega-Drought of 1276
+### Decoupled Maize GDD and Precipitation (PPT) Optima (*)
 
-.co-authors[
+&lt;img src="images/elevation-profile.svg" style="display: block; margin: auto;" /&gt;
+
+---
+background-image: url("images/desert_parchment.webp")
+background-size: contain
+
+.acknowledgment[
+
+## 🤝 Acknowledgments
+
+.pull-left[
+#### Co-authors
 - Jerry Spangler
 - Peter Yaworsky
 - Weston McCool
 - Brian Codding
-]
 
-.research-collaborators[
-- Paul Algaier
-- Kate Magargal
-- Ishmael Medina
-- Danica Vasic  
-- Maren Moffat  
-- Percy Schryver  
-- Jason Fisher  
-- Alex Shumate  
-]
-
-.committee[
+#### PhD Committee
 - Brian Codding
 - Simon Brewer
 - James F. O'Connell
@@ -238,9 +236,38 @@ Obvious result that confirms a popular hypothesis for farming in the southwest. 
 - Shane Macfarlan
 ]
 
-.other-support[
-- Deb Miller at UT SHPO
-- And the UUAC!
+.pull-right[
+#### Collaborators
+- Paul Algaier
+- Kate Magargal
+- Ishmael Medina
+- Danica Vasic  
+- Maren Moffat  
+- Percy Schryver  
+- Jason Fisher  
+- Alex Shumate  
+
+#### Other
+- Deb Miller (UT SHPO)
+
+]
+
+]
+
+.logos[
+
+&lt;img src="images/logo-uuac.png" width="3008" style="display: block; margin: auto auto auto 0;" /&gt;
+
+.logo-align[
+
+&lt;img src="images/logo-gcsc.png" width="219" class='fl w-60 pt4' style="display: block; margin: auto;" /&gt;
+
+&lt;img src="https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png" class='fl w-30 pl4' style="display: block; margin: auto;" /&gt;
+
+]
+
+]
+
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
