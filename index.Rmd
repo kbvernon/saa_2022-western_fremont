@@ -18,6 +18,7 @@ output:
 ```{r setup}
 #| include = FALSE
 
+library(icons)
 library(here)
 library(knitr)
 library(metathis)
@@ -55,6 +56,11 @@ figure <- function(x) {
   knitr::include_graphics(full_path)
   
 }
+
+funding <- icons::icon_style(
+  icons::fontawesome("hand-holding-dollar"), # version 5
+  fill = "#F2B007"
+)
 
 ```
 
@@ -189,7 +195,7 @@ __An area of extremes__
 - 1-3,000 meters of elevation  
 - 25&#176;C swing in daily temperature  
 
-**Orography** drives _everything_.  
+**Elevation** drives _everything_.  
 - -2.1&#176;C for every 300 m of elevation  
 - 00% of precip is winter snow pack  
 
@@ -251,8 +257,6 @@ figure("model-response_plots.svg")
 
 ```
 
-In the _average_ environment, how much does site count change per unit change in X?
-
 ???
 
 - As you can see, site count tends to increase with increasing GDD. Of course, as my friend Pete likes to point out, this result should be taken with a grain of salt, for it could not increase indefinitely in this way. I mean, no one is farming on the sun.  
@@ -297,6 +301,10 @@ figure("elevation-profile.png")
 
 ```
 
+???
+
+Here is an east-west profile of elevation in the northern part of the project area. According to our model, optimal values of precipitation and temperature co-occur only with a narrow band of elevation, right around the elevation of the Pinion-Juniper Zone and just below that. 
+
 ---
 count: false
 
@@ -305,6 +313,10 @@ count: false
 figure("elevation-profile-goldilocks.png")
 
 ```
+
+???
+
+As the Medieval Climate Anomaly (MCA) starts to slowly ease off in the late 13th century, a transition from a warm and dry climate to a cool and dry climate begins. The consequence of this cooling trend is that maize farmers in Utah must look at lower elevations for temperatures conducive to maize.
 
 ---
 count: false
@@ -315,6 +327,10 @@ figure("elevation-profile-gdd.png")
 
 ```
 
+???
+
+However, because of the severe drought that started in 1276, water-resources necessary for maize only occur at increasingly higher elevations.
+
 ---
 count: false
 
@@ -323,6 +339,10 @@ count: false
 figure("elevation-profile-ppt.png")
 
 ```
+
+???
+
+Thus, the optimal elevation band for maize farming shrinks, eventually reaching the point where it could no longer sustain a maize farming strategy. 
 
 ---
 count: false
@@ -338,45 +358,34 @@ layout: false
 background-image: url("images/desert_parchment.webp")
 background-size: contain
 
-.acknowledgment[
+.acknowledgment[.inner[
 
 ## 🤝 Acknowledgments
 
 .pull-left[
-#### Co-authors
-- Jerry Spangler
-- Peter Yaworsky
-- Weston McCool
-- Brian Codding
-
-#### PhD Committee
-- Brian Codding
-- Simon Brewer
 - James F. O'Connell
 - Joan Coltrain
 - Kristen Hawkes
 - Shane Macfarlan
+- Paul Algaier
+- Kate Magargal
 ]
 
 .pull-right[
-#### Collaborators
-- Paul Algaier
-- Kate Magargal
 - Ishmael Medina
 - Danica Vasic  
 - Maren Moffat  
 - Percy Schryver  
 - Jason Fisher  
 - Alex Shumate  
-
-#### Other
-- Deb Miller (UT SHPO)
-
+- Deb Miller
 ]
 
-]
+]]
 
-.logos[
+.logos[.inner[
+
+## `r funding` Funding
 
 ```{r}
 #| fig.align = "left"
@@ -386,7 +395,6 @@ figure("logo-uuac.png")
 ```
 
 .logo-align[
-
 ```{r}
 #| out.extra = "class='fl w-60 pt4'"
 
@@ -400,9 +408,6 @@ figure("logo-gcsc.png")
 knitr::include_graphics("https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png")
 
 ```
-
 ]
 
-]
-
-]
+]]

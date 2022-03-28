@@ -100,14 +100,24 @@ h3 {
 .acknowledgment {
   position: absolute;
   top: 5%;
-  left:5%;
-  background-color: rgba(255, 255, 255, 0.75);
+  left: 3%;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 35px !important;
-  max-width: 42%;
+  width: 5.55in;
+  height: 4in;
+  color: var(--black);
 }
 
-.acknowledgment h2 {
-  margin-top: 0.23em;
+.inner {
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: auto;
+  height: 99%;
+  width: 99%;
+  padding: 15px !important;
+}
+
+.acknowledgment h2, .logos h2 {
+  margin-top: 0.13em;
 }
 
 .acknowledgment h4 {
@@ -123,9 +133,10 @@ h3 {
 .logos {
   position: absolute;
   top: 5%;
-  right:5%;
-  background-color: rgba(255, 255, 255, 0.75);
+  right:3%;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 35px !important;
-  max-width: 46%;
+  width: 5.75in;
   align-content: right;
+  height: 4in;
 }
