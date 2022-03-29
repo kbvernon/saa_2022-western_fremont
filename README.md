@@ -1,7 +1,8 @@
 
-# SAA 2022 - Western Fremont [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+# SAA 2022 - Western Fremont
 
 <!-- badges: start -->
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 <!-- badges: end -->
 
 Repository for my presentation at the Society for American Archaeology 87th Annual Meeting in Chicago. Slides made using [xaringan](https://github.com/yihui/xaringan) in R. 
