@@ -15,7 +15,7 @@ __Session:__ "Climatic Influences on Diet, Demography, and Conflict"
 
 __Title:__ "The Fremont Frontier: Living at the Margins of Maize Farming"
 
-__Authors:__ Kenneth Vernon, Jerry Spangler, Weston McCool, Peter Yaworsky, Brian Codding
+__Authors:__ Kenneth Vernon, Jerry Spangler, Weston McCool, Peter Yaworsky, Simon Brewer, and Brian Codding
 
 __Abstract__  
 
