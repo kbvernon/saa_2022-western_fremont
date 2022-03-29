@@ -201,7 +201,7 @@ name: total-area
 **Elevation drives everything**  
 .f5[
 - -2.1&#176;C for every 300 m of elevation  
-- 00% of precip is winter snow pack  
+- 90% of precip is winter snow pack  
 ]
 
 **Trade-off between temperature and precipitation**  
@@ -385,6 +385,9 @@ background-size: contain
 - Alex Shumate  
 - Deb Miller
 ]
+<br>
+
+Slides at [github.com/kbvernon](https://github.com/kbvernon/saa_2022-western_fremont) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ]]
 
